@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html style="height:100%" lang="en">
+  <head>
+    <meta name="viewport" content="initial-scale" />
+    <link
+      data-name="vs/editor/editor.main"
+      rel="stylesheet"
+      href="https://microsoft.github.io/monaco-editor/node_modules/monaco-editor/min/vs/editor/editor.main.css"
+    />
+    <style>
+      body {
+        margin: 0;
+        background: #FFFFFE;
+        overflow: hidden;
+      }
+      .buttons {
+        position: fixed;
+        right: 0;
+        top: 0;
+        width: 19%;
+        overflow: auto;
+      }
+      .buttons button {
+        margin-top: 7.5px;
+        position: relative;
+        right: 0;
+        background: transparent;
+        font-family: monospace;
+        border-radius: 10px 0px 0px 10px;
+        height: 20px;
+        border: 0;
+        cursor: pointer;
+        text-align: left;
+        border-color: transparent;
+        outline: none;
+        width: 100%;
+        white-space: nowrap;
+      }
+      select {
+        padding-left: 5px;
+      }
+      details summary::-webkit-details-marker {
+        margin-left: 5px;
+        display: none;
+      }
+      summary:after {
+        background-image: url("/arrow.svg");
+        float: left;
+        height: 15px;
+        width: 14px;
+        margin-left: 5px;
+        content: " ";
+        transition: 0.5s;
+      }
+      .button {
+        margin-top: 10px;
+        position: relative;
+        right: 0;
+        background: transparent;
+        font-family: monospace;
+        border-radius: 10px 0px 0px 10px;
+        height: 20px;
+        border: 0;
+        cursor: pointer;
+        text-align: left;
+        border-color: transparent;
+        outline: none;
+        width: 100%;
+        white-space: nowrap;
+      }
+
+      div[file] {
+        height: 100vh;
+        width: 80%;
+        position: fixed;
+      }
+
+      details[open] summary:after {
+        transform: rotate(90deg);
+        content: " ";
+      }
+      ::marker{ display:none; } summary{ list-style: none }
+    </style>
+    <style id="sty2"></style>
+    <style id="__sty"></style>
+    <style id="style">
+      .buttons button {
+        color: #000;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="editor" file></div>
+    <div class="buttons" id="buttons">
+      <button onclick="darkMode()">
+        Dark Mode on/off
+      </button>
+      <button>
+        ok
+      </button>
+      <details>
+        <summary class="button">&nbsp;File</summary>
+        <button onclick="activateEdit('index')">
+          index
+        </button>
+        <button onclick="activateEdit('script')">
+          script
+        </button>
+        <button onclick="activateEdit('css')">
+          style
+        </button>
+      </details>
+    </div>
+    <script>
+      var require = {
+        paths: {
+          vs:
+            "https://microsoft.github.io/monaco-editor/node_modules/monaco-editor/min/vs"
+        }
+      };
+    </script>
+    <script src="https://microsoft.github.io/monaco-editor/node_modules/monaco-editor/min/vs/loader.js"></script>
+    <script src="https://microsoft.github.io/monaco-editor/node_modules/monaco-editor/min/vs/editor/editor.main.nls.js"></script>
+    <script src="https://microsoft.github.io/monaco-editor/node_modules/monaco-editor/min/vs/editor/editor.main.js"></script>
+    <script type="text/javascript" src="./learncodemain.js"></script>
+  </body>
+</html>

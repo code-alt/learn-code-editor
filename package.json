@@ -1,0 +1,32 @@
+{
+  "name": "learn-code-editor",
+  "version": "1.0.0",
+  "description": "A clean editor great for testing and building apps.",
+  "main": "main.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Learn-Code-App/learn-code-editor.git"
+  },
+  "keywords": [
+    "learn-code-editor",
+    "learn-code",
+    "editor",
+    "html",
+    "css",
+    "js"
+  ],
+  "author": "Learn-Code-App",
+  "license": "CC-BY-SA-4.0",
+  "bugs": {
+    "url": "https://github.com/Learn-Code-App/learn-code-editor/issues"
+  },
+  "homepage": "https://github.com/Learn-Code-App/learn-code-editor#readme"
+}
