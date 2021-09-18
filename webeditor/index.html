@@ -8,6 +8,18 @@
       href="https://microsoft.github.io/monaco-editor/node_modules/monaco-editor/min/vs/editor/editor.main.css"
     />
     <style>
+  .html {
+    color: #A63ADF;
+  }
+  .js {
+    color: #B8145F;
+  }
+  .css {
+    color: #CB4A3A;
+  }
+  .afterfiletext {
+    color: #30ba29;
+  }
       body {
         margin: 0;
         background: #FFFFFE;
@@ -50,7 +62,7 @@
         width: 14px;
         margin-left: 5px;
         content: " ";
-        transition: 0.5s;
+        transition: 0.25s;
       }
       .button {
         margin-top: 10px;
@@ -92,22 +104,25 @@
   <body>
     <div id="editor" file></div>
     <div class="buttons" id="buttons">
-      <button onclick="darkMode()">
+      <button onclick="darkMode()" class="button">
         Dark Mode on/off
       </button>
-      <button>
-        ok
+      <button class="button">
+        Tools
+      </button>
+      <button class="button">
+        Settings
       </button>
       <details>
         <summary class="button">&nbsp;File</summary>
-        <button onclick="activateEdit('index')">
-          index
+        <button class="button" onclick="activateEdit('index', 'html')">
+          index<span class="html">.html</span>
         </button>
-        <button onclick="activateEdit('script')">
-          script
+        <button class="button" onclick="activateEdit('script', 'javascript')">
+          script<span class="js">.js</span>
         </button>
-        <button onclick="activateEdit('css')">
-          style
+        <button class="button" onclick="activateEdit('style', 'css')">
+          style<span class="css">.css</span>
         </button>
       </details>
     </div>

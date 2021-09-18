@@ -1,5 +1,12 @@
+/*jshint esversion: 8 */
+
 var val = 1;
 var con = $("editor");
+var data = window.sessionStorage;
+var lData = window.localStorage;
+data.setItem("index", '<!--- Welcome to the Learn Code Editor!\nYou can write your code (html, css, and js.)\nHowever, (to create realism) Learn Code does not add your scripts or styles in.\nYou must do so yourself with a special tag, like so.\nPut in "/filename.ending/"\n...and it will link! (for some languages it may mark it as an error, but that is okay.) --->');
+data.setItem("script", "// This is the script for your app!");
+data.setItem("style", "/* Add styling to your app via CSS. */");
 
 function $(id) {
   return document.getElementById(id);
@@ -13,14 +20,15 @@ var IDE = {
       automaticLayout: true
     });
   },
-  addedFiles: "",
-  index: "<p>\n  Welcome to Learn Code\n</p>",
-  script: "",
-  css: "",
-  currentEdit: "index"
+  previousEdit: "index",
+  // currentEdit: "index",
 };
 
-var editor = IDE.addEdit("editor", "html", IDE.index.toString());
+function Settings() {
+  alert("heyo!");
+}
+
+var editor = IDE.addEdit("editor", "html", data.getItem("index"));
 
 var yy = 1;
 function darkMode() {
@@ -37,23 +45,43 @@ function darkMode() {
     LightMode();
     yy = 1;
   }
+  lData.setItem("ThemeData", yy-1);
 }
+
+if (lData.getItem("ThemeData")) {yy=lData.getItem("ThemeData");darkMode();}
+
+editor.setModel(monaco.editor.createModel(data.getItem("index"),"html",monaco.Uri.file("html")));
 function DarkMode() {
   document.body.style.background = "#1E1E1E";
-  $("style").innerText =
-    ".buttons button, .button {color:#FFF} summary::after {filter: invert(100%);}";
+  $("style").innerText = ".buttons button, .button {color:#FFF} summary::after {filter: invert(100%)";
+  $("sty2").innerText = ".button:hover {background:transparent;color:#fff;}";
 }
 function HCMode() {
   document.body.style.background = "#000";
   $("style").innerText =
     ".buttons button, .button {color:#FFF} summary::after {filter: invert(100%);}";
+    $("sty2").innerText = ".button:hover {background:transparent;color:#fff;}";
 }
 function LightMode() {
   document.body.style.background = "#FFFFFE";
   $("style").innerText = ".buttons button {color:#000}";
+  $("sty2").innerText = "";
 }
-function activateEdit(id) {
-  eval("IDE." + IDE.currentEdit + "=" + editor.getValue());
-  editor.setValue();
-  IDE.currentEdit = id.toString();
+
+function activateEdit(id, lang) {
+  data.setItem(IDE.previousEdit.toString(), editor.getValue().toString());
+  IDE.previousEdit=id.toString();
+  editor.setValue(data.getItem(id.toString()));
+  monaco.editor.setModelLanguage(editor.getModel(), lang);
 }
+
+editor.addAction(monaco.editor.IActionDescriptor = {
+  id: "Settings",
+  label: "Settings",
+  contextMenuOrder: 0,
+  contextMenuGroupId: "operation",
+  keybindings: [
+    monaco.KeyMod.CtrlCmd | monaco.KeyCode.US_COMMA,
+  ],
+  run: Settings,
+});

@@ -1,6 +1,6 @@
 {
   "name": "learn-code-editor",
-  "version": "1.0.0",
+  "version": "6.0.0",
   "description": "A clean editor great for testing and building apps.",
   "main": "main.js",
   "dependencies": {
