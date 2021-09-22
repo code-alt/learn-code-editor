@@ -4,7 +4,7 @@ var val = 1;
 var con = $("editor");
 var data = window.sessionStorage;
 var lData = window.localStorage;
-data.setItem("index", '<!--- Welcome to the Learn Code Editor!\nYou can write your code (html, css, and js.)\nHowever, (to create realism) Learn Code does not add your scripts or styles in.\nYou must do so yourself with a special tag, like so.\nPut in "/filename.ending/"\n...and it will link! (for some languages it may mark it as an error, but that is okay.) --->');
+data.setItem("index", '<!--- Welcome to the Learn Code Editor!\nYou can write your code (html, css, and js.)\nHowever, (to create realism) Learn Code does not add your scripts or styles in.\nYou must do so yourself with a special tag, like so.\nPut in "/filename.ending/"\n...and it will link! (for some languages it may mark it as an error, but that is okay.) --->\n\n<!-- Like, "<link href="/image.png/"/>" -->');
 data.setItem("script", "// This is the script for your app!");
 data.setItem("style", "/* Add styling to your app via CSS. */");
 
