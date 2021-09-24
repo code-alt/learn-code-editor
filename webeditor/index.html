@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html style="height:100%" lang="en">
   <head>
+    <title>Learn Code Editor</title>
     <meta name="viewport" content="initial-scale" />
     <link
       data-name="vs/editor/editor.main"
@@ -8,6 +9,10 @@
       href="https://microsoft.github.io/monaco-editor/node_modules/monaco-editor/min/vs/editor/editor.main.css"
     />
     <style>
+      .button:hover {
+    background: #E7F2F3;
+    color:black;
+  }
   .html {
     color: #A63ADF;
   }
@@ -47,6 +52,9 @@
         outline: none;
         width: 100%;
         white-space: nowrap;
+      }
+      .file {
+        margin-left:15px;
       }
       select {
         padding-left: 5px;
@@ -103,28 +111,59 @@
   </head>
   <body>
     <div id="editor" file></div>
-    <div class="buttons" id="buttons">
-      <button onclick="darkMode()" class="button">
-        Dark Mode on/off
-      </button>
-      <button class="button">
+    <div class="buttons" id="main">
+      <button class="button" onclick="Tools()">
         Tools
       </button>
-      <button class="button">
+      <button class="button" onclick="Settings()">
         Settings
       </button>
-      <details>
+      <details style="overflow-x: hidden;">
         <summary class="button">&nbsp;File</summary>
-        <button class="button" onclick="activateEdit('index', 'html')">
+        <button class="button file" onclick="activateEdit('index', 'html')">
           index<span class="html">.html</span>
         </button>
-        <button class="button" onclick="activateEdit('script', 'javascript')">
+        <button class="button file" onclick="activateEdit('script', 'javascript')">
           script<span class="js">.js</span>
         </button>
-        <button class="button" onclick="activateEdit('style', 'css')">
+        <button class="button file" onclick="activateEdit('style', 'css')">
           style<span class="css">.css</span>
         </button>
       </details>
+      <button class="button">Create file...</button>
+      <button class="button">Rename file...</button>
+    </div>
+    <div class="buttons" id="tools" style="display:none">
+      <button class="button" onclick="Main()">
+        Go Back
+      </button>
+      <button onclick="darkMode()" class="button">
+        Change Theme
+      </button>
+      <button class="button">
+        Fullscreen
+      </button>
+      <button class="button">
+        Hosting
+      </button>
+      <button class="button">
+        Terminal
+      </button>
+    </div>
+    <div class="buttons" id="settings" style="display:none">
+      <button class="button" onclick="Main()">
+        Go Back
+      </button>
+      <button class="button">
+        Save
+      </button>
+      <button onclick="darkMode()" class="button">
+        Import (Zip)
+      </button>
+      <button class="button">
+        Download (Zip)
+      </button>
+      <button class="button">Editor font size</button>
     </div>
     <script>
       var require = {

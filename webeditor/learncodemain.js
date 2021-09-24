@@ -25,7 +25,19 @@ var IDE = {
 };
 
 function Settings() {
-  alert("heyo!");
+  $("settings").style=undefined;
+  $("main").style="display:none";
+  $("tools").style="display:none";
+}
+function Tools() {
+  $("settings").style="display:none";
+  $("main").style="display:none";
+  $("tools").style=undefined;
+}
+function Main() {
+  $("settings").style="display:none";
+  $("main").style=undefined;
+  $("tools").style="display:none";
 }
 
 var editor = IDE.addEdit("editor", "html", data.getItem("index"));
@@ -84,4 +96,14 @@ editor.addAction(monaco.editor.IActionDescriptor = {
     monaco.KeyMod.CtrlCmd | monaco.KeyCode.US_COMMA,
   ],
   run: Settings,
+});
+editor.addAction(monaco.editor.IActionDescriptor = {
+  id: "Tools",
+  label: "Tools",
+  contextMenuOrder: 0,
+  contextMenuGroupId: "operation",
+  keybindings: [
+    monaco.KeyMod.CtrlCmd | monaco.KeyMod.Shift | monaco.KeyCode.US_COMMA,
+  ],
+  run: Tools,
 });
