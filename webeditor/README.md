@@ -25,7 +25,7 @@ It couldn't be.
 
 v5 is a completely revamped version redone completely from nothing, with the best UI you could ever see, completely, 100% responsive.
 
-(editor v5 and v6 are designed for an ipod btw)
+(editor v5 and v6 are designed for an ipod screen size btw)
 
 see ya,
-code-alt (learn code's only developer.)
+code-alt (learn code's only developer, for now)

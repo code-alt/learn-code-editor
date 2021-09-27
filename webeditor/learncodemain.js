@@ -97,6 +97,7 @@ editor.addAction(monaco.editor.IActionDescriptor = {
   ],
   run: Settings,
 });
+
 editor.addAction(monaco.editor.IActionDescriptor = {
   id: "Tools",
   label: "Tools",
