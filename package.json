@@ -21,7 +21,9 @@
     "editor",
     "html",
     "css",
-    "js"
+    "js",
+    "hacktoberfest",
+    "hacktoberfest2021",
   ],
   "author": "Learn-Code-App",
   "license": "CC-BY-SA-4.0",
